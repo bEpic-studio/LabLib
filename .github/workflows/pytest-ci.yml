@@ -31,6 +31,5 @@ jobs:
         pip install .
     - name: run pytest
       run: |
-        conda info
-        conda list
+        echo $PATH
         pytest
