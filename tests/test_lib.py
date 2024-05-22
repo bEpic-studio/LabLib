@@ -8,6 +8,7 @@ from lablib.lib import (
     ImageInfo,
     SequenceInfo,
 )
+import OpenImageIO as OIIO
 
 
 log = logging.getLogger(__name__)
@@ -20,6 +21,8 @@ class TestLib:
     def test_ImageInfo(self, path: str):
         path = Path(path)
         image_info = ImageInfo(path)
+        log.info(f"{OIIO = }")
+        log.info(f"{dir(OIIO) = }")
         log.debug(f"{image_info = }")
         assert image_info.par == 1.0
         assert image_info.fps == 24.0
