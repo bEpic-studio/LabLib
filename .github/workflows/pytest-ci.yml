@@ -31,8 +31,8 @@ jobs:
       run: |
         git clone https://github.com/AcademySoftwareFoundation/OpenImageIO.git
         cd OpenImageIO
-        conan profile detect
-        conan install .
+        poetry run conan profile detect
+        poetry run conan install .
     - name: Test with pytest
       run: |
         poetry run pytest
