@@ -28,7 +28,7 @@ jobs:
         echo $CONDA/bin >> $GITHUB_PATH
     - name: Install poetry
       run: |
-        conda create -f environment.yml
+        conda env create -f environment.yml
         conda activate lablib
     - name: Test with pytest
       run: |
