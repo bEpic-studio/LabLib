@@ -27,6 +27,12 @@ jobs:
         python -m pip install --upgrade pip
         pip install poetry
         poetry install
+    - name: Install OpenImageIO
+      run: |
+        git clone https://github.com/AcademySoftwareFoundation/OpenImageIO.git
+        cd OpenImageIO
+        conan profile detect
+        conan install .
     - name: Test with pytest
       run: |
         poetry run pytest
