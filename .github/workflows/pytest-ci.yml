@@ -26,6 +26,9 @@ jobs:
         environment-file: environment.yml
         python-version: 3.9
         auto-activate-base: false
+    - name: install LabLib
+      run: |
+        conda install .
     - name: run pytest
       run: |
         conda info
