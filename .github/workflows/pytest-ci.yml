@@ -15,22 +15,21 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    defaults:
+      run:
+        shell: bash -l {0}
     steps:
-    - uses: actions/checkout@v4
-    - name: Set up Python 3.9
-      uses: actions/setup-python@v3
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: setup conda
+      uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: "3.9"
-    - name: Add conda to system path
-      run: |
-        # $CONDA is an environment variable pointing to the root of the miniconda directory
-        echo $CONDA/bin >> $GITHUB_PATH
-    - name: Install poetry
-      run: |
-        conda env create -f environment.yml
-        conda init bash
-        conda activate lablib
-    - name: Test with pytest
+        miniconda-version: "latest"
+        channels: bioconda, conda-forge, defaults
+        auto-update-conda: true
+        auto-activate-base: false
+        activate-environment: lablib
+        environment-file: environment.yml
       run: |
         pytest
