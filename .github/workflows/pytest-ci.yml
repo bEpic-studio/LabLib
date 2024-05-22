@@ -33,7 +33,7 @@ jobs:
         poetry install
     - name: Install OpenImageIO
       run: |
-        conda install -c conda-forge openimageio py-openimageio
+        conda install -y -c conda-forge openimageio py-openimageio
     - name: Test with pytest
       run: |
         poetry run pytest
