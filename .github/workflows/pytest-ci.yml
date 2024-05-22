@@ -28,7 +28,7 @@ jobs:
         auto-activate-base: false
     - name: install LabLib
       run: |
-        conda install .
+        pip install .
     - name: run pytest
       run: |
         conda info
