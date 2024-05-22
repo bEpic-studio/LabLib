@@ -29,6 +29,7 @@ jobs:
     - name: Install poetry
       run: |
         conda env create -f environment.yml
+        conda init bash
         conda activate lablib
     - name: Test with pytest
       run: |
